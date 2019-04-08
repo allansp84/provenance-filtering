@@ -33,7 +33,11 @@ To build a Docker Image to run this software, please execute the commands below:
 >     ./build_docker_image.sh
 
 After build a Docker Image, please execute the following commands to run a docker container:
->     docker run --userns=host -it --name provfiltering -v $(pwd)/datasets:/root/datasets -v $(pwd)/docker-results:/root/docker-results provenance-filtering
+>
+>     docker run --userns=host -it --name provfiltering \
+>                -v $(pwd)/datasets:/root/datasets \
+>                -v $(pwd)/docker-results:/root/docker-results \
+>                provenance-filtering
 
 
 ## Usage
