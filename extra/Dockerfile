@@ -58,12 +58,11 @@ RUN \
     python3 -c "import pyflann; print(pyflann.__file__)" && \
     rm -rf /root/flann-1.9.1 ~/.cache
 
-# -- install the provenance-filtering-icip17 package and its dependences
+# -- install the provenance-filtering package and its dependences
 RUN \
     cd /root && \
-    git clone https://gitlab.com/notredame-provenance/filtering.git && \
-    cd /root/filtering && \
-    git checkout refactoring && \
+    git clone https://github.com/allansp84/provenance-filtering.git && \
+    cd /root/provenance-filtering && \
     sh extra/install_requirements.sh && \
     python3 setup.py develop && \
     rm -rf ~/.cache
