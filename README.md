@@ -49,21 +49,21 @@ directory, since it will be already installed in your system:
 1. Extract the SURF key-points and SURF descriptors (500 feature vectors per image) from all images in the probe and gallery set:
 >
 >     filtering_icip17.py --dataset 4 --dataset_path /root/datasets/oxford100k \
-                          --groundtruth_path /root/datasets/oxford100k/rel-oxford5k.txt \
-                          --output_path /root/docker-results \
-                          --detector_kpm SURF --descriptor_kpm SURF --limit_kpm 500 \
-                          --feature_extraction \
-                          --n_jobs 4
+>                         --groundtruth_path /root/datasets/oxford100k/rel-oxford5k.txt \
+>                         --output_path /root/docker-results \
+>                         --detector_kpm SURF --descriptor_kpm SURF --limit_kpm 500 \
+>                         --feature_extraction \
+>                         --n_jobs 4
 
 2. Index a set of images to perform an approximate nearest neighbors search using KD-Forest with 8 trees
 >
 >     filtering_icip17.py --dataset 4 --dataset_path /root/datasets/oxford100k \
-                          --groundtruth_path /root/datasets/oxford100k/rel-oxford5k.txt \
-                          --output_path /root/docker-results \
-                          --detector_kpm SURF --descriptor_kpm SURF --limit_kpm 500 \
-                          --n_jobs 4 \
-                          --index_type_kpm KDFOREST --n_kdtree_kpm 8 --distance_kpm L2 \
-                          --search_type_kpm knn --score_type_kpm vote --n_neighbors_kpm 51 \
-                          --compute_distances_kpm \
-                          --matching \
-                          --plot_pr_curves
+>                         --groundtruth_path /root/datasets/oxford100k/rel-oxford5k.txt \
+>                         --output_path /root/docker-results \
+>                         --detector_kpm SURF --descriptor_kpm SURF --limit_kpm 500 \
+>                         --n_jobs 4 \
+>                         --index_type_kpm KDFOREST --n_kdtree_kpm 8 --distance_kpm L2 \
+>                         --search_type_kpm knn --score_type_kpm vote --n_neighbors_kpm 51 \
+>                         --compute_distances_kpm \
+>                         --matching \
+>                         --plot_pr_curves
