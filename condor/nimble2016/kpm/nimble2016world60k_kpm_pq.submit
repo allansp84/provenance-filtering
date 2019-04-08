@@ -1,0 +1,40 @@
+# The HTCondor Vanilla Universe is the only Universe available on our installation
+
+universe        = vanilla
+
+notification    = never
+
+getenv          = True
+home_path   = /data/dasilvap
+environment = "PYTHONPATH=$(home_path)/.local/opencv-2.4.13/lib/python2.7/dist-packages:$(home_path)/VENV/nd-env/lib/python2.7/site-packages:"
+
+# Variables
+filename = nimble2016world60k_kpm_pq
+output_path = working_Dec12_batches
+n_kdtree = 8
+kp_number = 500
+
+# Rank (ex: this job prefers higher memory machines)
+rank = kflops
+
+# Job Requirements (ex: this job needs 64 bit Linux with more than 512mb of RAM)
+request_memory  = 5 GB
+request_cpus    = 24
+
+# The executable to run, relative to the ClassAd file location
+initialdir      = $(home_path)/developments/near-duplicate-detection
+executable      = condor/nimble2016/kpm/$(filename).sh
+
+# Output file ($(Process) refers to the JobID)
+error           = logs/err/$(filename).$(Cluster).$(Process).err
+log             = logs/log/$(filename).$(Cluster).$(Process).log
+output          = logs/out/$(filename).$(Cluster).$(Process).out
+
+# Command line arguments to use with the program, separated by spaces
+# --feature_extraction --resize_img 
+
+arguments       = --approach kp_matching --dataset 6 --dataset_path dataset/Nimble2016World60K --output_path $(output_path) --n_jobs $(request_cpus) --detector_kpm SURF --descriptor_kpm SURF --limit_kpm $(kp_number) --lib_kpm pf --index_type_kpm KDFOREST --n_kdtree_kpm $(n_kdtree) --distance_kpm L2 --search_type_kpm knn --score_type_kpm vote --n_neighbors_kpm 1 --rfactor_kpm 1.0 --feature_extraction --compute_distances_kpm --matching --plot_pr_curves --n_batches 4
+queue
+
+# arguments       = --approach kp_matching --dataset 6 --dataset_path dataset/Nimble2016World60K --output_path $(output_path) --n_jobs $(request_cpus) --detector_kpm SURF --descriptor_kpm SURF --limit_kpm $(kp_number) --lib_kpm lb --index_type_kpm IVFPQ --nsubq_kpm 8 --n_kdtree_kpm $(n_kdtree) --distance_kpm L2 --search_type_kpm knn --score_type_kpm vote --n_neighbors_kpm 1 --rfactor_kpm 1.0 --feature_extraction --compute_distances_kpm --matching --plot_pr_curves --n_batches 4
+# queue

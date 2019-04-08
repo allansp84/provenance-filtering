@@ -1,0 +1,9 @@
+# Variables
+VARS NodeA initialdir="/data/dasilvap/developments/near-duplicate-detection"
+
+# Job definition
+Job Nimble0 $(initialdir)/condor/nimble/kpm/nimble_kpm_pq.submit
+Job Nimble1 $(initialdir)/condor/nimble/kpm/nimble_kpm_pq_1.submit
+
+# Relationship between Jobs
+PARENT Nimble0 CHILD Nimble1

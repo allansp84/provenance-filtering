@@ -1,0 +1,4 @@
+Job A nimble2016world1m_kpm_pq_reference_mask_a.submit
+Job B nimble2016world1m_kpm_pq_reference_mask_b.submit
+
+PARENT A CHILD B
