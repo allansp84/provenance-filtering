@@ -87,6 +87,7 @@ class Controller(BaseController):
         all_features = []
 
         for i in range(n_fnames):
+            pdb.set_trace()
             feats = np.load(fnames[i])[:self.args.limit_kpm, :]
             all_features += [feats]
             n_key_points_by_img += [feats.shape[0]]
