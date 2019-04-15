@@ -331,8 +331,6 @@ class Controller(BaseController):
             input_path = os.path.join(self.data.output_path, self.descriptor, str(self.args.limit_kpm),
                                       self.features_path)
 
-            pdb.set_trace()
-
             metainfo_feats = self.data.meta_info_feats(input_path, ['npy'])
             output_path = os.path.join(input_path, trial["CS"], trial["SDD"], str(trial["DS"]))
             output_path = output_path.replace('low_level_features', 'mid_level_features')
