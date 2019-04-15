@@ -146,7 +146,6 @@ class Oxford100k(Dataset):
         scenes_id_host = []
         scenes_id_alien = []
 
-
         if self.groundtruth_path:
             for i in range(len(gt_all_idxs)):
                 y = np.zeros(all_idxs.shape, dtype=np.uint32)
@@ -157,11 +156,11 @@ class Oxford100k(Dataset):
         search_idxs = np.setdiff1d(all_idxs, query_idxs)
         search_idxs = np.sort(search_idxs)
 
-        r_state = np.random.RandomState(7)
-        for n in range(self.n_round):
-            search_idxs = r_state.permutation(search_idxs)
-        search_idxs, train_idxs = np.array_split(search_idxs, 2, axis=0)
-        import pdb;pdb.set_trace()
+        # r_state = np.random.RandomState(7)
+        # for n in range(self.n_round):
+        #     query_idxs = r_state.permutation(query_idxs)
+        query_idxs, train_idxs = np.array_split(query_idxs, 2, axis=0)
+
         r_state = np.random.RandomState(7)
         for n in range(self.n_round):
             search_idxs = r_state.permutation(search_idxs)
