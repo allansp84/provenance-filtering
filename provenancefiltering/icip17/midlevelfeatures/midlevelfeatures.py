@@ -283,6 +283,7 @@ class MidLevelFeatures(object):
 
         feats = feats_.copy()
         codebook = codebook_.copy()
+        # feats = np.concatenate(feats)
 
         if self.debug:
             print('\t- coding features ...')
@@ -413,7 +414,7 @@ class MidLevelFeatures(object):
             self.save_features(all_mid_level_feats, all_fnames)
 
         else:
-
+            import pdb; pdb.set_trace()
             all_labels, all_feats, all_fnames = self.__load_all_features()
             all_mid_level_feats = self.feature_extraction_with_unified_codebook(all_feats)
             self.save_features(all_mid_level_feats, all_fnames)
