@@ -3,7 +3,7 @@
 import sys
 import cv2
 import time
-
+import numpy as np
 
 hessianThreshold = 100
 nOctaves = 5
@@ -41,6 +41,12 @@ def local_feature_detection(img, detetype, kmax=500, mask=None, default_params=T
             st_t = time.time()
             keypoints = surf.detect(img, mask)
             ed_t = time.time()
+
+            step_size = 5
+            if len(keypoints) < kmax:
+                keypoints = [cv2.KeyPoint(x, y, step_size) for y in range(0, img.shape[0], step_size) for x in range(0, img.shape[1], step_size)]
+                r_state = np.random.RandomState(7)
+                keypoints = list(r_state.permutation(keypoints))
 
             if kmax != -1:
                 keypoints = keypoints[0:kmax]

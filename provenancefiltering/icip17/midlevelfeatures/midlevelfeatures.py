@@ -311,7 +311,6 @@ class MidLevelFeatures(object):
 
             for sample in range(feats.shape[0]):
                 feats[sample] -= feats[sample].min(axis=1).reshape(-1, 1)
-                import pdb;pdb.set_trace()
                 coded_feats[sample] = chi2_kernel(feats[sample], codebook, gamma=beta)
 
                 cfnorm = coded_feats[sample].sum(axis=1).reshape(-1, 1)
@@ -415,7 +414,6 @@ class MidLevelFeatures(object):
 
         else:
             all_labels, all_feats, all_fnames = self.__load_all_features()
-            import pdb; pdb.set_trace()
             all_mid_level_feats = self.feature_extraction_with_unified_codebook(all_feats)
             self.save_features(all_mid_level_feats, all_fnames)
 
