@@ -188,6 +188,12 @@ class Controller(BaseController):
         if not self.args.subspace_algo and not self.args.query_contraction and not self.args.query_expansion:
             input_path = os.path.join(self.data.output_path, self.descriptor, str(self.args.limit_kpm), self.features_path,
                                       )
+        if self.args.midlevel:
+            input_path = os.path.join(self.data.output_path, self.descriptor, str(self.args.limit_kpm),
+                                      self.features_path,self.mlf_trials[0]["CS"], self.mlf_trials[0]["SDD"],
+                                      str(self.mlf_trials[0]["DS"]),
+                                      )
+
         else:
             input_path = os.path.join(self.data.output_path, self.descriptor, str(self.args.limit_kpm), "features_subspaces",
                                       self.subspace_path)
