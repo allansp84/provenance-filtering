@@ -2,7 +2,7 @@
 
 import os
 import sys
-import cPickle
+import pickle as cPickle
 import numpy as np
 
 from sklearn.cluster import KMeans
