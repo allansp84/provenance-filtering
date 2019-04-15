@@ -15,6 +15,7 @@ from provenancefiltering.icip17.controller import BaseController
 from provenancefiltering.icip17.feature import FeatureExtraction
 from provenancefiltering.icip17.feature import local_feature_detection_and_description
 from provenancefiltering.icip17.feature import keypoints_from_array, keypoints_to_array
+from provenancefiltering.icip17.midlevelfeatures import MidLevelFeatures
 
 from provenancefiltering.icip17.indexing import create_rank_files, create_feature_index, search_index
 from provenancefiltering.icip17.indexing import match
@@ -73,6 +74,9 @@ class Controller(BaseController):
 
         self.descriptor = "Match{0}".format(self.args.descriptor_kpm)
         self.n_round = "round_{0}".format(self.args.n_round)
+
+        mlf_search_space = {'CS': 'kmeans', 'SDD': 'unified', 'DS': 160, 'CP': 'softmax'}
+        self.mlf_trials = [mlf_search_space]
 
     def load_features(self, fnames):
 
@@ -315,6 +319,37 @@ class Controller(BaseController):
 
         elapsed = total_time_elapsed(start, get_time())
         print('spent time: {0}!'.format(elapsed), flush=True)
+        sys.stdout.flush()
+
+    def extract_mid_level_features(self):
+        """ docstring """
+
+        start = get_time()
+
+        for trial in self.mlf_trials:
+
+            input_path = os.path.join(self.data.output_path, self.descriptor, str(self.args.limit_kpm),
+                                      self.features_path)
+
+            metainfo_feats = self.data.metainfo_feats(input_path, ['npy'])
+            pdb.set_trace()
+            output_path = os.path.join(input_path, trial["CS"], trial["SDD"], str(trial["DS"]))
+            output_path = output_path.replace('low_level_features', 'mid_level_features')
+
+            print("{0}/{1}".format(output_path, trial["CP"]))
+
+            midlevelfeats = MidLevelFeatures(metainfo_feats, input_path, output_path,
+                                             codebook_selection=trial["CS"],
+                                             codebook_build=trial["SDD"],
+                                             codebook_size=trial["DS"],
+                                             coding_poling=trial["CP"],
+                                             n_jobs=N_JOBS)
+
+            midlevelfeats.build_codebook()
+            midlevelfeats.run()
+
+        elapsed = total_time_elapsed(start, get_time())
+        print('spent time: {0}!'.format(elapsed))
         sys.stdout.flush()
 
     def extract_subspace_features(self):
