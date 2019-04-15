@@ -156,7 +156,7 @@ class Oxford100k(Dataset):
         search_idxs = np.setdiff1d(all_idxs, query_idxs)
         search_idxs = np.sort(search_idxs)
 
-        query_idxs, train_idxs = np.array_split(query_idxs, 2, axis=0)
+        _, train_idxs = np.array_split(query_idxs, 2, axis=0)
 
         r_state = np.random.RandomState(7)
         for n in range(self.n_round):

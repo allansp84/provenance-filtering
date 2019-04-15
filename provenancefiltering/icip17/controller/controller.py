@@ -396,11 +396,6 @@ class Controller(BaseController):
         input_path = os.path.join(self.data.output_path, self.descriptor, str(self.args.limit_kpm), self.indexing_path,
                                   self.n_round, self.subspace_path)
 
-        # input_query_dbfeats = "{0:s}/{1:s}_query.npy".format(input_path, self.args.prefix_kpm)
-        # output_query_index = os.path.join(input_path, "query")
-        # create_feature_index(input_query_dbfeats, output_query_index, "index",
-        #                      self.args.index_type_kpm, self.args.distance_kpm, self.args.lib_kpm, self.args.n_kdtree_kpm,
-        #                      self.args.subsampling, self.args.niter_pq)
 
         split_search_idxs = self.data.meta_info['search_idxs']
         for s in range(len(split_search_idxs)):
@@ -423,12 +418,6 @@ class Controller(BaseController):
         start = get_time()
 
         # -- computing distances
-
-        # input_path = os.path.join(self.data.output_path, self.descriptor, str(self.args.limit_kpm), self.indexing_path,
-        #                           self.n_round, self.subspace_path)
-
-        # if self.args.subspace_algo and (not self.args.query_contraction) and (not self.args.query_expansion):
-        #     input_path = os.path.join(input_path, self.subspace_path)
 
         meta_info_feats = self.load_features_metadata()
 
