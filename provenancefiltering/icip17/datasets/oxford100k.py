@@ -161,7 +161,7 @@ class Oxford100k(Dataset):
         for n in range(self.n_round):
             search_idxs = r_state.permutation(search_idxs)
         search_idxs, train_idxs = np.array_split(search_idxs, 2, axis=0)
-
+        import pdb;pdb.set_trace()
         r_state = np.random.RandomState(7)
         for n in range(self.n_round):
             search_idxs = r_state.permutation(search_idxs)
