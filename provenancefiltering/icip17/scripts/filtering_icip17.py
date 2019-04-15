@@ -229,6 +229,7 @@ class CommandLineParser(object):
         group_b.add_argument('--query_contraction', action='store_true')
 
         group_b.add_argument('--query_expansion', action='store_true')
+        group_b.add_argument('--midlevel', action='store_true')
 
         group_b.add_argument('--subsampling', action='store_true')
 
