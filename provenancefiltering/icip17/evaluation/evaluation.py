@@ -107,19 +107,21 @@ class Evaluation(BaseEvaluation):
         r_list = {key: [] for _, key in s_all_labels}
 
         for all_labels, label in s_all_labels:
-            print("\n{0} images".format(label))
-            sys.stdout.flush()
+            if len(all_labels):
 
-            # -- starting the testing stage
-            r_dict = self.execute_testing(gallery_labels=all_labels[:, gallery_idxs], all_labels=all_labels, dists_matrix=dists_matrix)
+                print("\n{0} images".format(label))
+                sys.stdout.flush()
 
-            # -- compute MAP and ROC curve
-            basename = os.path.basename(self.output_path)
-            pr_curve_title = "{0}_{1}_NN{2}_{3}".format(self.descriptor, basename.split('_')[0], basename.split('_')[2], label)
-            _ = self.two_fold_performance_evaluation(r_dict, pr_curve_title)
+                # -- starting the testing stage
+                r_dict = self.execute_testing(gallery_labels=all_labels[:, gallery_idxs], all_labels=all_labels, dists_matrix=dists_matrix)
 
-            # -- compute Precision and Recall
-            self.compute_top_k(r_dict, label)
-            r_list[label] = r_dict
+                # -- compute MAP and ROC curve
+                basename = os.path.basename(self.output_path)
+                pr_curve_title = "{0}_{1}_NN{2}_{3}".format(self.descriptor, basename.split('_')[0], basename.split('_')[2], label)
+                _ = self.two_fold_performance_evaluation(r_dict, pr_curve_title)
+
+                # -- compute Precision and Recall
+                self.compute_top_k(r_dict, label)
+                r_list[label] = r_dict
 
         return r_list

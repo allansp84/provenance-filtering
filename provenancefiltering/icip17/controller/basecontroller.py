@@ -175,12 +175,14 @@ class BaseController(object):
                 img_text = "Rank {0} ({1})".format((t+1), sub_class[idxs[t]])
 
                 if len(host_labels):
-                    if host_labels[q_idx, idxs[t]]:
-                        img_text = "{0} (H)".format(img_text)
+                    if len(host_labels):
+                        if host_labels[q_idx, idxs[t]]:
+                            img_text = "{0} (H)".format(img_text)
 
                 if len(alien_labels):
-                    if alien_labels[q_idx, idxs[t]]:
-                        img_text = "{0} (A)".format(img_text)
+                    if len(alien_labels):
+                        if alien_labels[q_idx, idxs[t]]:
+                            img_text = "{0} (A)".format(img_text)
 
                 cv2.putText(img, img_text, (10, img.shape[0] - 10), cv2.FONT_HERSHEY_TRIPLEX, 1.4,
                             color=(0, 0, 0), thickness=2, lineType=cv2.LINE_AA)

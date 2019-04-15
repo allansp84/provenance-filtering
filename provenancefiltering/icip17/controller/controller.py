@@ -36,7 +36,7 @@ class LoadFeatures(object):
         self.n_feats = n_feats
 
     def run(self):
-        features = np.load(self.input_fname)[:self.n_feats, :]
+        features = np.load(self.input_fname)[:, :]
         return [features.shape[0], features]
 
 
