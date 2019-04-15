@@ -310,6 +310,7 @@ class MidLevelFeatures(object):
 
             for sample in range(feats.shape[0]):
                 feats[sample] -= feats[sample].min(axis=1).reshape(-1, 1)
+                import pdb;pdb.set_trace()
                 coded_feats[sample] = chi2_kernel(feats[sample], codebook, gamma=beta)
 
                 cfnorm = coded_feats[sample].sum(axis=1).reshape(-1, 1)
