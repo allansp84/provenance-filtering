@@ -1338,6 +1338,7 @@ class Controller(BaseController):
 
         if self.args.feature_extraction:
             self.feature_extraction()
+            self.extract_mid_level_features()
 
             if self.args.subspace_algo:
                 self.extract_subspace_features()
