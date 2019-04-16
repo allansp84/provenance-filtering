@@ -228,7 +228,7 @@ class Controller(BaseController):
                     if not os.path.isfile(all_feats_output_path):
 
                         gallery_fnames_bs = gallery_fnames[batches_indexes[bs]:batches_indexes[bs + 1]]
-                        search_features, n_keypoints_by_img = self.load_features_par(gallery_fnames_bs)
+                        search_features, n_keypoints_by_img = self.load_features(gallery_fnames_bs)
 
                         for i, fname in enumerate(gallery_fnames_bs):
                             imgname = os.path.basename(fname)
