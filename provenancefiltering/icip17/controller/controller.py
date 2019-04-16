@@ -122,7 +122,7 @@ class Controller(BaseController):
         if 'kp' in file_type and self.args.subspace_algo:
             input_path = input_path.replace("features_subspaces", "features")
             input_path = os.path.dirname(input_path)
-        pdb.set_trace()
+
         meta_info_feats = self.data.meta_info_feats(input_path, [file_type])
 
         return meta_info_feats
