@@ -4,7 +4,7 @@ This software aims to find the most related images with respect to a given query
 
 ## How to install this software?
 
-We provide a Dockerfile to build Docker containers capable to install all requirements, to compile, and to install this software. To build a docker container for this sotfware please execute the following command:
+We provide a Dockerfile to build Docker containers capable to install all requirements, to compile, and to install this software. To build a docker container for this software please execute the following command:
 >
 >     ./extra/build_docker_image.sh
 
@@ -19,8 +19,8 @@ To download this software, please execute the following command:
 To test this software upon the Oxford100k Dataset (http://www.robots.ox.ac.uk/~vgg/data/oxbuildings/flickr100k.html), please execute the following commands:
 >
 >     cd ~/provenance-filtering
->     mkdir -p dataset/
->     cd dataset
+>     mkdir -p datasets/
+>     cd datasets
 >     wget http://www.recod.ic.unicamp.br/~allansp/files/oxford100k.tar.gz
 >     tar -xvzf oxford100k.tar.gz
 
@@ -29,7 +29,7 @@ To test this software upon the Oxford100k Dataset (http://www.robots.ox.ac.uk/~v
 To build a Docker Image to run this software, please execute the commands below:
 >
 >     cd ~
->     cd provenance-filterint/extra
+>     cd provenance-filtering/extra
 >     ./build_docker_image.sh
 
 After build a Docker Image, please execute the following commands to run a docker container:
