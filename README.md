@@ -110,4 +110,4 @@ If you use this software, please cite our paper published in *IEEE International
 
 This software is available under condition of the [AGPL-3.0 Licence](https://github.com/allansp84/provenance-filtering/blob/master/LICENSE).
 
-Copyright (c) 2015, Allan Pinto, William Robson Schwartz, Helio Pedrini, and Anderson Rocha
+Copyright (c) 2017, A. Pinto and D. Moreira and A. Bharati and J. Brogan and K. Bowyer and P. Flynn and W. Scheirer and A. Rocha
