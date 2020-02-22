@@ -71,3 +71,43 @@ directory, since it will be already installed in your system:
 >                         --compute_distances_kpm \
 >                         --matching \
 >                         --plot_pr_curves
+
+### Reference
+
+If you use this software, please cite our paper published in *IEEE International Conference on Image Processing* and *IEEE Transactions on Image Processing*:
+
+
+> **BibTeXs**
+>
+>     @INPROCEEDINGS{8296532,
+>     author={A. {Pinto} and D. {Moreira} and A. {Bharati} and J. {Brogan} and K. {Bowyer} and P. {Flynn} and W. {Scheirer} and A. {Rocha}},
+>     booktitle={2017 IEEE International Conference on Image Processing (ICIP)},
+>     title={Provenance filtering for multimedia phylogeny},
+>     year={2017},
+>     volume={},
+>     number={},
+>     pages={1502-1506},
+>     keywords={biological techniques;biology computing;feature extraction;genetics;image filtering;composite/doctored image;query image;traditional digital forensics modeling;potential images;creation process;host images;digital objects;multimedia phylogeny;evolutionary processes;two-tiered provenance filtering approach;Phylogeny;Multimedia communication;Indexing;Task analysis;Forensics;Robustness;Filtering;Provenance Filtering;Multimedia Phylogeny;Phylogeny Graph;Provenance Context Incorporation},
+>     doi={10.1109/ICIP.2017.8296532},
+>     ISSN={2381-8549},
+>     month={Sep.},}
+
+>     @ARTICLE{8438504,
+>     author={D. {Moreira} and A. {Bharati} and J. {Brogan} and A. {Pinto} and M. {Parowski} and K. W. {Bowyer} and P. J. {Flynn} and A. {Rocha} and W. J. {Scheirer}},
+>     journal={IEEE Transactions on Image Processing},
+>     title={Image Provenance Analysis at Scale},
+>     year={2018},
+>     volume={27},
+>     number={12},
+>     pages={6109-6123},
+>     keywords={feature extraction;graph theory;image filtering;image retrieval;social networking (online);image provenance analysis;image processing;computer vision techniques;individual images;query image;original images;image transformations;cutting-edge image filtering solution;social media site Reddit;public media manipulation;Task analysis;Pipelines;Image retrieval;Cultural differences;Image color analysis;Social network services;Digital image forensics;digital humanities;image retrieval;graphs;image provenance;image phylogeny},
+>     doi={10.1109/TIP.2018.2865674},
+>     ISSN={1941-0042},
+>     month={Dec},}
+
+
+### License
+
+This software is available under condition of the [AGPL-3.0 Licence](https://github.com/allansp84/provenance-filtering/blob/master/LICENSE).
+
+Copyright (c) 2015, Allan Pinto, William Robson Schwartz, Helio Pedrini, and Anderson Rocha
